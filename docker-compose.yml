@@ -1,0 +1,20 @@
+znc:
+    build: ./znc/
+    environment:
+        VIRTUAL_HOST: znc.*
+        VIRTUAL_PORT: 1337
+        VIRTUAL_PROTO: https
+        CERT_NAME: localhost
+        ADMIN_USER: sascha
+        ADMIN_NICK: sascha
+        ADMIN_ALTERNATIVE_NICK: sascha_
+        ADMIN_REAL_NAME: Sascha Marcel Schmidt
+        ADMIN_IDENT: sascha
+    volumes_from:
+     - data
+    ports:
+     - "1337:1337"
+data:
+    build: ./znc/
+    entrypoint: /bin/true
+    command: --
